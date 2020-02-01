@@ -14,7 +14,8 @@ pipeline {
    
     stage('Docker Build') {
       steps {
-        sh 'docker build -t rajinovat/gs-spring-boot-docker:${env.BUILD_NUMBER} .'
+        sh 'mkdir -p build/dependency && (cd build/dependency; jar -xf ../libs/*.jar)'
+        sh 'docker build --build-arg DEPENDENCY=build/dependency -t rajinovat/gs-spring-boot-docker:${env.BUILD_NUMBER} .'
      }
    } 
 
