@@ -14,7 +14,7 @@ pipeline {
 
     stage('Copy Dependencies') {
       steps {
-        sh 'mkdir -p build/dependency && cd build/dependency && jar -xf build/libs/*.jar && cd ../../'
+        sh 'mkdir -p build/dependency && cd build/dependency && jar -xf ../libs/*.jar && cd ../../'
      }
    }
    
