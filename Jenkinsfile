@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Build Gradle'){
      steps{
-        sh 'gradlew build && java -jar build/libs/gs-spring-boot-docker-0.1.0.jar'
+        sh '''export GRADLE_USER_HOME=/home/gradle/.gradle
+              gradle build && java -jar build/libs/gs-spring-boot-docker-0.1.0.jar'''
       }
     }
 }
