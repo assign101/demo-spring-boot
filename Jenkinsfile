@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build Gradle'){
      steps{
-        ls -altr
+        sh 'ls -altr'
       }
     }
 }
