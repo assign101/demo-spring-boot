@@ -11,10 +11,15 @@ pipeline {
        sh './gradlew build'
       }
     }
+
+    stage('Copy Dependencies') {
+      steps {
+        sh 'mkdir -p build/dependency && cd build/dependency && jar -xf build/libs/*.jar && cd ../../'
+     }
+   }
    
     stage('Docker Build') {
       steps {
-        sh 'mkdir -p build/dependency && cd build/dependency && jar -xf ../libs/*.jar && cd ../../'
         sh 'docker build --build-arg DEPENDENCY=build/dependency -t rajinovat/gs-spring-boot-docker:${env.BUILD_NUMBER} .'
      }
    } 
