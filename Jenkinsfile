@@ -1,6 +1,9 @@
 pipeline {
   agent any
   stages {
+    stage('Checkout'){
+        checkout scm
+      }
     stage('Build Gradle'){
      steps{
         sh '''export GRADLE_USER_HOME=/home/gradle/.gradle
