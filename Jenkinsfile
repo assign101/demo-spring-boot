@@ -29,7 +29,7 @@ pipeline {
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-          sh "docker push rajinovat/gs-spring-boot-docker
+          sh "docker push rajinovat/gs-spring-boot-docker"
         }
       }
     }
