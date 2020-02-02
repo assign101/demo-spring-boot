@@ -34,6 +34,16 @@ pipeline {
       }
     }
 
+    stage('Deploy to DEV namespace') {
+      steps {
+          withKubeConfig([credentialsId: 'kubeconfig']) {
+          sh 'cat service.yaml | sed "s/{{ENV}}/dev/g"' 
+          sh 'cat deployment.yaml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" | sed "s/{{ENV}}/dev/g" | kubectl apply -f -'
+          sh 'kubectl apply -f service.yaml'
+        }
+      }
+  }
+
     stage('Docker Remove Image') {
       steps {
         sh "docker rmi rajinovat/gs-spring-boot-docker"
