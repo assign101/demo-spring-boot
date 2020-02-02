@@ -11,8 +11,7 @@ pipeline {
     stage('Deploy Test') {
       steps {
           withKubeConfig([credentialsId: 'kubeconfig']) {
-          sh 'cat service.yaml | sed "s/env/test/g"'
-          sh 'cat deployment.yaml | sed "s/env/test/g" | kubectl apply -f -'
+          sh 'cat deployment.yaml | kubectl apply -f -'
           sh 'kubectl apply -f service.yaml'
         }
       }
