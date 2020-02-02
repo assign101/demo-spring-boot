@@ -16,18 +16,6 @@ NOTE: There is also a https://spring.io/guides/topicals/spring-boot-docker[Topic
 :java_version: 1.8
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
 
-If you are NOT using a Linux machine, you will need a virtualized server. By installing VirtualBox, other tools like the Mac's boot2docker, can seamlessly manage it for you. Visit https://www.virtualbox.org/wiki/Downloads[VirtualBox's download site] and pick the version for your machine. Download and install. Don't worry about actually running it.
-
-You will also need https://docker.com[Docker], which only runs on 64-bit machines. See https://docs.docker.com/installation/#installation for details on setting Docker up for your machine. Before proceeding further, verify you can run `docker` commands from the shell. If you are using boot2docker you need to run that *first*.
-
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
-
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-gradle.adoc[]
-
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-maven.adoc[]
-
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-sts.adoc[]
-
 [[initial]]
 == Set up a Spring Boot app
 

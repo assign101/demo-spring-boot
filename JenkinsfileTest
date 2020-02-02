@@ -4,13 +4,15 @@ pipeline {
     stage('Checkout'){
       steps{
         checkout scm
+        sh 'ls -altr'
        }
       }
 
-    stage('Apply Kubernetes Files') {
+    stage('Deploy Test') {
       steps {
           withKubeConfig([credentialsId: 'kubeconfig']) {
-          sh 'cat deployment.yaml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" | kubectl apply -f -'
+          sh 'cat service.yaml | sed "s/{{ENV}}/test/g"'
+          sh 'cat deployment.yaml | sed "s/{{ENV}}/test/g" | kubectl apply -f -'
           sh 'kubectl apply -f service.yaml'
         }
       }
