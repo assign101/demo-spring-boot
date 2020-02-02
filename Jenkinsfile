@@ -37,8 +37,8 @@ pipeline {
     stage('Deploy to DEV namespace') {
       steps {
           withKubeConfig([credentialsId: 'kubeconfig']) {
-          sh 'cat service.yaml | sed "s/{{ENV}}/dev/g"' 
-          sh 'cat deployment.yaml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" | sed "s/{{ENV}}/dev/g" | kubectl apply -f -'
+          sh 'cat service.yaml | sed "s/env/dev/g"' 
+          sh 'cat deployment.yaml | sed "s/{{BUILD_NUMBER}}/$BUILD_NUMBER/g" | sed "s/env/dev/g" | kubectl apply -f -'
           sh 'kubectl apply -f service.yaml'
         }
       }

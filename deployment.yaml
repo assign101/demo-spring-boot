@@ -5,7 +5,7 @@ metadata:
   name: demo-deployment-dev
   labels:
     app: gsapp
-  namespace: {{ENV}}
+  namespace: env
 spec:
   replicas: 2
   selector:
